@@ -3,6 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+//pinia
+import { createPinia } from "pinia";
+
 // Vuetify
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
@@ -14,4 +17,14 @@ const vuetify = createVuetify({
   directives,
 });
 
-createApp(App).use(vuetify).use(store).use(router).mount("#app");
+//mitt
+import mitt from "mitt";
+const emitters = mitt;
+
+createApp(App)
+  .use(vuetify)
+  .use(createPinia)
+  .use(store)
+  .provide("emitters", emitters)
+  .use(router)
+  .mount("#app");
