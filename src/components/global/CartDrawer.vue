@@ -9,13 +9,13 @@
 </template>
 
 <script setup>
-import { ref, inject, onMounted } from "vue";
+import { ref } from "vue";
 
 const drawer = ref(false);
-const Emitter = inject("Emitter");
-onMounted(() => {
-  Emitter.on("openCart", () => {
-    drawer.value = true;
-  });
-});
+// const Emitter = inject("Emitter");
+// onMounted(() => {
+//   Emitter.on("openCart", () => {
+//     drawer.value = true;
+//   });
+// });
 </script>
