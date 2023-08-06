@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <v-layout style="position: relative">
     <CartDrawer />
     <AppNav />
     <v-main style="padding-top: 137px">

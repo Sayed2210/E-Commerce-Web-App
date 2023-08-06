@@ -1,5 +1,5 @@
 <template>
-  <v-footer :app="true">
+  <v-footer :app="true" absolute>
     <v-row justify="center" no-gutters>
       <v-btn
         v-for="link in links"
