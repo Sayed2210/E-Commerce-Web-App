@@ -2,7 +2,7 @@
   <v-layout>
     <CartDrawer />
     <AppNav />
-    <v-main>
+    <v-main style="padding-top: 137px">
       <slot></slot>
     </v-main>
     <AppFooter />

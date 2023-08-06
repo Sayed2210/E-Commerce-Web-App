@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <h1 class="text-center">this home page</h1>
+    <UpperBanner />
   </div>
 </template>
 
-<script></script>
+<script setup>
+import UpperBanner from "@/components/home_page/UpperBanner.vue";
+</script>
