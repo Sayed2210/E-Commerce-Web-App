@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar :elevation="2" color="blue" height="fit-content">
+  <v-app-bar :elevation="2" absolute="" color="blue" height="fit-content">
     <v-container fluid>
       <v-row>
         <v-col cols="3">
