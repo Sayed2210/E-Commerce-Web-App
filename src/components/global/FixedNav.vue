@@ -1,29 +1,25 @@
 <template>
-  <v-app-bar color="blue">
+  <v-app-bar color="blue" class="py-2">
     <v-container fluid>
       <v-row>
         <v-col cols="2">
           <img src="@/assets/images/logo.png" alt="" class="mt-2" />
         </v-col>
         <v-col cols="7">
-          <div class="links">
+          <div class="links pt-4">
             <ul class="d-flex align-center justify-space-between ga">
               <li v-for="link in links" :key="link.id">{{ link }}</li>
             </ul>
           </div>
         </v-col>
         <v-col cols="3" class="d-flex justify-end" style="gap: 10px">
-          <div class="sreach">
-            <svg
-              data-icon="search"
-              viewBox="0 0 512 512"
-              width="100%"
-              height="100%"
-            >
+          <div class="sreach text-center">
+            <svg data-icon="search" viewBox="0 0 512 512">
               <path
                 d="M495,466.2L377.2,348.4c29.2-35.6,46.8-81.2,46.8-130.9C424,103.5,331.5,11,217.5,11C103.4,11,11,103.5,11,217.5   S103.4,424,217.5,424c49.7,0,95.2-17.5,130.8-46.7L466.1,495c8,8,20.9,8,28.9,0C503,487.1,503,474.1,495,466.2z M217.5,382.9   C126.2,382.9,52,308.7,52,217.5S126.2,52,217.5,52C308.7,52,383,126.3,383,217.5S308.7,382.9,217.5,382.9z"
               ></path>
             </svg>
+            <h6>Search</h6>
           </div>
           <div class="icons text-center" @click="fireemit">
             <v-badge location="top right" color="red" content="2"
@@ -83,5 +79,9 @@ ul {
       opacity: 1;
     }
   }
+}
+.sreach,
+.icons {
+  cursor: pointer;
 }
 </style>
