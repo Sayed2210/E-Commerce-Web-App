@@ -19,11 +19,12 @@ const vuetify = createVuetify({
 
 //mitt
 import mitt from "mitt";
+
 const Emitter = mitt();
 
 createApp(App)
   .use(vuetify)
-  .use(createPinia)
+  .use(createPinia())
   .use(store)
   .provide("Emitter", Emitter)
   .use(router)
