@@ -3,13 +3,13 @@ import axios from "axios";
 
 export const productModule = defineStore("productModule", {
   state: () => ({
-    flashDeal: [],
+    flashDeals: [],
   }),
   actions: {
     async getProducts() {
       await axios
         .get("https://dummyjson.com/docs/products")
-        .then((res) => (this.flashDeal = res.data.products.slice(0, 8)))
+        .then((res) => (this.flashDeals = res.data.products.slice(0, 8)))
         .catch((err) => console.log(err));
     },
   },

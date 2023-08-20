@@ -29,7 +29,7 @@
     height: 420px;
     background-image: url(../../assets/images/banner-bg.jpg);
     background-size: cover;
-    background-postion: -90px top;
+    background-position: -90px top;
   }
   .cont {
     padding-top: 50px;
@@ -37,7 +37,7 @@
     color: white;
     h1 {
       font-size: 3rem;
-      font-wight: bold;
+      font-weight: bold;
       span {
         color: #00e5ff;
       }

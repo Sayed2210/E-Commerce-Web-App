@@ -9,5 +9,8 @@ export default {
       type: Array,
     },
   },
+  mounted() {
+    console.log(this.products);
+  },
 };
 </script>
