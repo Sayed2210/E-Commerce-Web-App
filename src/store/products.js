@@ -8,7 +8,7 @@ export const productModule = defineStore("productModule", {
   actions: {
     async getProducts() {
       await axios
-        .get("https://dummyjson.com/docs/products")
+        .get("https://dummyjson.com/products")
         .then((res) => (this.flashDeals = res.data.products.slice(0, 8)))
         .catch((err) => console.log(err));
     },
