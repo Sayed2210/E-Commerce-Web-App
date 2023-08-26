@@ -15,7 +15,10 @@ const vuetify = createVuetify({
   components,
   directives,
 });
-
+//config swiper
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 //mitt
 import mitt from "mitt";
 
