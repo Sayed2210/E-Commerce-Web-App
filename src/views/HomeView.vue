@@ -4,6 +4,7 @@
     <TheFeature />
     <TopOffer />
     <FlashDeals :products="flashDeals" />
+    <TopCategory />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import UpperBanner from "@/components/home_page/UpperBanner.vue";
 import TheFeature from "@/components/home_page/TheFeature.vue";
 import TopOffer from "@/components/home_page/TopOffer.vue";
 import FlashDeals from "@/components/home_page/FlashDeals.vue";
+import TopCategory from "@/components/home_page/TopCategory.vue";
 // //get data from api
 // import { productModule } from "@/store/products";
 // import { onMounted } from "vue";
