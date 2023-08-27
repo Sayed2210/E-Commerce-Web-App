@@ -42,7 +42,7 @@
             color="yellow-darken-3"
             readonly
             size="x-small"
-            density="combact"
+            density="compact"
             half-increments
             class="pt-0"
           ></v-rating>
@@ -76,7 +76,11 @@
             </v-btn>
           </v-btn-toggle>
           <v-card-action>
-            <v-btn class="py-1 px-12 rounded-pill" variant="outlined">
+            <v-btn
+              class="py-1 px-12 rounded-pill"
+              variant="outlined"
+              density="compact"
+            >
               Choose Product
             </v-btn>
           </v-card-action>

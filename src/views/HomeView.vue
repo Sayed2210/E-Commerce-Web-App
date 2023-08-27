@@ -5,6 +5,7 @@
     <TopOffer />
     <FlashDeals :products="flashDeals" />
     <TopCategory />
+    <NewProduct :products="newProduct" />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import TheFeature from "@/components/home_page/TheFeature.vue";
 import TopOffer from "@/components/home_page/TopOffer.vue";
 import FlashDeals from "@/components/home_page/FlashDeals.vue";
 import TopCategory from "@/components/home_page/TopCategory.vue";
+import NewProduct from "@/components/home_page/NewProduct.vue";
 // //get data from api
 // import { productModule } from "@/store/products";
 // import { onMounted } from "vue";
@@ -33,7 +35,7 @@ export default {
     ...mapActions(productModule, ["getProducts"]),
   },
   computed: {
-    ...mapState(productModule, ["flashDeals"]),
+    ...mapState(productModule, ["flashDeals", "newProduct"]),
   },
   async mounted() {
     await this.getProducts();
