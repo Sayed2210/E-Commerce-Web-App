@@ -1,7 +1,9 @@
 <template>
   <div class="flash-deals py-16 px-6">
     <div class="title d-flex align-center justify-space-between mb-8">
-      <h1 class="text-red font-weight-bold">Flash Deals</h1>
+      <h1 :class="[`text-${titleColor}`]">
+        {{ title }}
+      </h1>
       <a href="#" class="text-black">Shop All</a>
     </div>
     <Swiper
@@ -32,9 +34,12 @@
           <v-card-text class="pl-0 pb-1">
             {{ item.title }} -
             {{
-              item.description.split(" ").lenght <= 8
+              item.description + " " + item.title.split(" ").length <= 5
                 ? item.description
-                : item.description.split(" ").slice(0, 7).join(" ") + "..."
+                : item.description
+                    .split(" ")
+                    .slice(0, 8 - item.title.split(" ").length)
+                    .join(" ")
             }}
           </v-card-text>
           <v-rating
@@ -42,7 +47,7 @@
             color="yellow-darken-3"
             readonly
             size="x-small"
-            density="combact"
+            density="compact"
             half-increments
             class="pt-0"
           ></v-rating>
@@ -76,7 +81,11 @@
             </v-btn>
           </v-btn-toggle>
           <v-card-action>
-            <v-btn class="py-1 px-12 rounded-pill" variant="outlined">
+            <v-btn
+              class="py-1 px-12 rounded-pill"
+              variant="outlined"
+              density="compact"
+            >
               Choose Product
             </v-btn>
           </v-card-action>
@@ -102,6 +111,12 @@ export default {
   props: {
     products: {
       type: Array,
+    },
+    title: {
+      type: String,
+    },
+    titleColor: {
+      type: String,
     },
   },
   data: () => ({
