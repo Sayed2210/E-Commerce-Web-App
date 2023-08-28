@@ -3,10 +3,31 @@
     <UpperBanner />
     <TheFeature />
     <TopOffer />
-    <FlashDeals :products="flashDeals" />
+    <ProductSwiper
+      :products="flashDeals"
+      title="Flash Deals"
+      title-color="red"
+    />
     <TopCategory />
     <NewProduct :products="newProduct" />
     <QualityFeatures />
+    <ProductSwiper
+      :products="mobilePhones"
+      title="Top Mobiles Phones"
+      title-color="black"
+    />
+    <FeatureBand />
+    <ProductSwiper
+      :products="fragrances"
+      title="Fragrances"
+      title-color="black"
+    />
+    <TvBanner />
+    <ProductSwiper
+      :products="groceries"
+      title="Fragrances"
+      title-color="black"
+    />
   </div>
 </template>
 
@@ -14,18 +35,12 @@
 import UpperBanner from "@/components/home_page/UpperBanner.vue";
 import TheFeature from "@/components/home_page/TheFeature.vue";
 import TopOffer from "@/components/home_page/TopOffer.vue";
-import FlashDeals from "@/components/home_page/FlashDeals.vue";
+import ProductSwiper from "@/components/home_page/ProductSwiper.vue";
 import TopCategory from "@/components/home_page/TopCategory.vue";
 import NewProduct from "@/components/home_page/NewProduct.vue";
 import QualityFeatures from "@/components/home_page/QualityFeatures.vue";
-// //get data from api
-// import { productModule } from "@/store/products";
-// import { onMounted } from "vue";
-// const store = productModule();
-// const flashDeals = store.flashDeals;
-// onMounted(async () => {
-//   await store.getProducts;
-// });
+import FeatureBand from "@/components/home_page/FeatureBand.vue";
+import TvBanner from "@/components/home_page/TvBanner.vue";
 </script>
 
 <script>
@@ -37,7 +52,13 @@ export default {
     ...mapActions(productModule, ["getProducts"]),
   },
   computed: {
-    ...mapState(productModule, ["flashDeals", "newProduct"]),
+    ...mapState(productModule, [
+      "flashDeals",
+      "newProduct",
+      "mobilePhones",
+      "fragrances",
+      "groceries",
+    ]),
   },
   async mounted() {
     await this.getProducts();

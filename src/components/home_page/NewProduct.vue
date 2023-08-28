@@ -1,7 +1,7 @@
 <template>
   <div class="new-product py-8">
     <div class="title d-flex align-center justify-space-between mb-4">
-      <h1 class="text-black font-weight-bold">Flash Deals</h1>
+      <h1 class="text-black font-weight-bold">New Products</h1>
       <a href="#" class="text-black">Shop All</a>
     </div>
     <v-container fluid>
