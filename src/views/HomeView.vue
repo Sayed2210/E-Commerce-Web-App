@@ -28,6 +28,7 @@
       title="Fragrances"
       title-color="black"
     />
+    <WhyShopUs />
   </div>
 </template>
 
@@ -41,6 +42,7 @@ import NewProduct from "@/components/home_page/NewProduct.vue";
 import QualityFeatures from "@/components/home_page/QualityFeatures.vue";
 import FeatureBand from "@/components/home_page/FeatureBand.vue";
 import TvBanner from "@/components/home_page/TvBanner.vue";
+import WhyShopUs from "@/components/home_page/WhyShopUs.vue";
 </script>
 
 <script>
