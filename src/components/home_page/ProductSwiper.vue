@@ -6,6 +6,18 @@
       </h1>
       <a href="#" class="text-black">Shop All</a>
     </div>
+    <v-container fluid>
+      <v-row>
+        <v-col cols="12" v-if="!products.length">
+          <v-row
+            ><v-col cols="3" v-for="num in 4" :key="num">
+              <v-skeleton-loader
+                type="image, article , button"
+              ></v-skeleton-loader> </v-col
+          ></v-row>
+        </v-col>
+      </v-row>
+    </v-container>
     <Swiper
       :pagination="{ clickable: true }"
       :modules="modules"
@@ -98,10 +110,12 @@
 <script>
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import { Navigation, Pagination, Autoplay } from "swiper";
+import { VSkeletonLoader } from "vuetify/lib/labs/components.mjs";
 export default {
   components: {
     SwiperSlide,
     Swiper,
+    VSkeletonLoader,
   },
   setup() {
     return {
