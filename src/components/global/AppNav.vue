@@ -1,9 +1,15 @@
 <template>
-  <v-app-bar :elevation="2" absolute="" color="blue" height="fit-content">
+  <v-app-bar :elevation="2" absolute color="blue" height="fit-content">
     <v-container fluid>
       <v-row>
         <v-col cols="3">
-          <img src="@/assets/images/logo.png" alt="" class="mt-2" />
+          <img
+            src="@/assets/images/logo.png"
+            alt=""
+            class="mt-2"
+            @click="$router.push({ name: 'home' })"
+            style="cursor: pointer"
+          />
         </v-col>
         <v-col cols="5">
           <div class="search postion-relative w-100" style="position: relative">
@@ -103,14 +109,23 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="8">
           <div class="links">
             <ul class="d-flex align-center justify-space-between ga">
-              <li v-for="link in links" :key="link.id">{{ link }}</li>
+              <li v-for="cat in categories" :key="cat.title">
+                <router-link
+                  style="color: white; text-decoration: none"
+                  :to="{
+                    name: 'products-category',
+                    params: { category: cat.route, title: cat.title },
+                  }"
+                  >{{ cat.title }}</router-link
+                >
+              </li>
             </ul>
           </div>
         </v-col>
-        <v-col cols="12" sm="6" class="d-flex justify-end" style="gap: 10px">
+        <v-col cols="12" sm="4" class="d-flex justify-end" style="gap: 10px">
           <div class="help d-flex align-center">
             <svg
               aria-hidden="true"
@@ -165,16 +180,6 @@
 <script setup>
 import { inject, ref } from "vue";
 const Emitter = inject("Emitter");
-const links = ref([
-  "Theme Data",
-  "Shop",
-  "Product",
-  "New In",
-  "Must Have",
-  "Coloctions",
-  "Pages",
-  "Buy Ella",
-]);
 const fireemit = () => {
   Emitter.emit("openCart");
 };
@@ -295,3 +300,12 @@ ul {
   cursor: pointer;
 }
 </style>
+<script>
+import { productModule } from "@/store/products";
+import { mapState } from "pinia";
+export default {
+  computed: {
+    ...mapState(productModule, ["categories"]),
+  },
+};
+</script>

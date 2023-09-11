@@ -3,16 +3,31 @@
     <v-container fluid>
       <v-row>
         <v-col cols="2">
-          <img src="@/assets/images/logo.png" alt="" class="mt-2" />
+          <img
+            src="@/assets/images/logo.png"
+            alt=""
+            class="mt-2"
+            @click="$router.push({ name: 'home' })"
+            style="cursor: pointer"
+          />
         </v-col>
-        <v-col cols="7">
+        <v-col cols="8">
           <div class="links pt-4">
             <ul class="d-flex align-center justify-space-between ga">
-              <li v-for="link in links" :key="link.id">{{ link }}</li>
+              <li v-for="cat in categories" :key="cat.title">
+                <router-link
+                  style="color: white; text-decoration: none"
+                  :to="{
+                    name: 'products-category',
+                    params: { category: cat.route, title: cat.title },
+                  }"
+                  >{{ cat.title }}</router-link
+                >
+              </li>
             </ul>
           </div>
         </v-col>
-        <v-col cols="3" class="d-flex justify-end" style="gap: 10px">
+        <v-col cols="2" class="d-flex justify-end" style="gap: 10px">
           <div class="sreach text-center">
             <svg data-icon="search" viewBox="0 0 512 512">
               <path
@@ -45,19 +60,17 @@
     </v-container>
   </v-app-bar>
 </template>
-
+<script>
+import { productModule } from "@/store/products";
+import { mapState } from "pinia";
+export default {
+  computed: {
+    ...mapState(productModule, ["categories"]),
+  },
+};
+</script>
 <script setup>
-import { inject, ref } from "vue";
-const links = ref([
-  "Theme Data",
-  "Shop",
-  "Product",
-  "New In",
-  "Must Have",
-  "Coloctions",
-  "Pages",
-  "Buy Ella",
-]);
+import { inject } from "vue";
 const Emitter = inject("Emitter");
 const fireemit = () => {
   Emitter.emit("openCart");
