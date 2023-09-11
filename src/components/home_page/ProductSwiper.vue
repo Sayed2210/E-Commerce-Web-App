@@ -30,7 +30,7 @@
       <swiper-slide v-for="item in products" :key="item.id">
         <v-card elevation="0">
           <v-hover v-slot="{ isHovering, props }">
-            <div class="img-parent">
+            <div class="img-parent position-relative">
               <img
                 :src="
                   showItem[item.title] ? showItem[item.title] : item.thumbnail
@@ -41,6 +41,13 @@
                 }`"
                 v-bind="props"
               />
+              <v-btn
+                class="quick-view bg-white position-absoulte px-2 py-1"
+                variant="outlined"
+                density="compact"
+                @click="openQuickView(item)"
+                >Qiuck view</v-btn
+              >
             </div>
           </v-hover>
           <v-card-text class="pl-0 pb-1">
@@ -117,7 +124,14 @@
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import { Navigation, Pagination, Autoplay } from "swiper";
 import { VSkeletonLoader } from "vuetify/lib/labs/components.mjs";
+
 export default {
+  inject: ["Emitter"],
+  methods: {
+    openQuickView(product) {
+      this.Emitter.emit("openQuickView", product);
+    },
+  },
   components: {
     SwiperSlide,
     Swiper,
@@ -151,8 +165,23 @@ img {
 }
 .flash-deals {
   .img-parent {
+    &:hover {
+      .quick-view {
+        opacity: 1;
+      }
+    }
     height: 200px;
     overflow: hidden;
+    position: relative;
+    .quick-view {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 30px;
+      transition: 0.3s;
+      opacity: 0;
+    }
   }
   .swiper-button-next,
   .swiper-button-prev {

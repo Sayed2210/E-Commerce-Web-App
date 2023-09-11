@@ -80,6 +80,15 @@
               />
               <v-icon icon="mdi-plus" size="22" @click="quantity++"></v-icon>
             </div>
+            <v-card-text>
+              Subtotal: ${{
+                Math.floor(
+                  singleProduct.price -
+                    singleProduct.price *
+                      (singleProduct.discountPercentage / 100)
+                ) * quantity
+              }}
+            </v-card-text>
             <v-card-actions class="pl-0 mt-5">
               <v-btn
                 color="dark"

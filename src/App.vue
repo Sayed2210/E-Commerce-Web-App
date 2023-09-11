@@ -1,9 +1,10 @@
 <template>
-  <app-layout><router-view /></app-layout>
+  <app-layout><router-view /> <QuickView /></app-layout>
 </template>
 
 <script setup>
 import AppLayout from "./components/global/AppLayout.vue";
+import QuickView from "./components/home_page/QuickView.vue";
 </script>
 <style lang="scss">
 input[type="number"]::-webkit-inner-spin-button,

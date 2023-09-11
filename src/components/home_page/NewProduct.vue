@@ -31,6 +31,13 @@
                       }`"
                       v-bind="props"
                     />
+                    <v-btn
+                      class="quick-view bg-white position-absoulte px-2 py-1"
+                      variant="outlined"
+                      density="compact"
+                      @click="openQuickView(item)"
+                      >Qiuck view</v-btn
+                    >
                   </div>
                 </v-hover>
                 <v-card-text class="pl-0 pb-1">
@@ -108,6 +115,12 @@
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import { Pagination, Autoplay } from "swiper";
 export default {
+  inject: ["Emitter"],
+  methods: {
+    openQuickView(product) {
+      this.Emitter.emit("openQuickView", product);
+    },
+  },
   components: {
     SwiperSlide,
     Swiper,
@@ -127,3 +140,25 @@ export default {
   }),
 };
 </script>
+
+<style lang="scss">
+.img-parent {
+  &:hover {
+    .quick-view {
+      opacity: 1;
+    }
+  }
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  .quick-view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    transition: 0.3s;
+    opacity: 0;
+  }
+}
+</style>

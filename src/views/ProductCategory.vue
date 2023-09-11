@@ -31,6 +31,13 @@
                     }`"
                     v-bind="props"
                   />
+                  <v-btn
+                    class="quick-view bg-white position-absoulte px-2 py-1"
+                    variant="outlined"
+                    density="compact"
+                    @click="openQuickView(item)"
+                    >Qiuck view</v-btn
+                  >
                 </div>
               </v-hover>
               <v-card-text class="pl-0 pb-1">
@@ -87,6 +94,12 @@
                   class="py-1 px-12 rounded-pill"
                   variant="outlined"
                   density="compact"
+                  @click="
+                    $router.push({
+                      name: 'products-page',
+                      params: { productId: item.id },
+                    })
+                  "
                 >
                   Choose Product
                 </v-btn>
@@ -104,6 +117,7 @@ import { productModule } from "@/store/products";
 import { mapActions, mapState } from "pinia";
 import { VSkeletonLoader } from "vuetify/lib/labs/components.mjs";
 export default {
+  inject: ["Emitter"],
   components: {
     VSkeletonLoader,
   },
@@ -113,6 +127,9 @@ export default {
   }),
   methods: {
     ...mapActions(productModule, ["getProductsByCategory"]),
+    openQuickView(product) {
+      this.Emitter.emit("openQuickView", product);
+    },
   },
   computed: {
     ...mapState(productModule, ["categoriesProducts"]),
@@ -131,3 +148,25 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.img-parent {
+  &:hover {
+    .quick-view {
+      opacity: 1;
+    }
+  }
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  .quick-view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    transition: 0.3s;
+    opacity: 0;
+  }
+}
+</style>
