@@ -5,6 +5,7 @@
       quaerat tempora, voluptatum accusantium illum similique odit tenetur ipsam
       expedita mollitia ut qui non libero aut. Placeat eos beatae doloremque.[]
     </p>
+    <v-btn @click="deleteItem(5)">delete</v-btn>
   </v-navigation-drawer>
 </template>
 
@@ -18,4 +19,17 @@ onMounted(() => {
     drawer.value = true;
   });
 });
+</script>
+
+<script>
+import { addCartItems } from "@/store/cart";
+import { mapActions } from "pinia";
+export default {
+  methods: {
+    ...mapActions(addCartItems, ["getItems", "deleteItem"]),
+  },
+  mounted() {
+    this.getItems();
+  },
+};
 </script>

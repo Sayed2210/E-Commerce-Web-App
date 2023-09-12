@@ -4,7 +4,7 @@
 
 <script setup>
 import AppLayout from "./components/global/AppLayout.vue";
-import QuickView from "./components/home_page/QuickView.vue";
+import QuickView from "./components/global/QuickView.vue";
 </script>
 <style lang="scss">
 input[type="number"]::-webkit-inner-spin-button,
