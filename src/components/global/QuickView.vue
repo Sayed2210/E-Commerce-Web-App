@@ -114,6 +114,7 @@
                       color: white;
                     "
                     class="w-75 px-5 py-1"
+                    @click="addToCart(product)"
                     >Add To Cart</v-btn
                   >
                 </v-card-actions>
@@ -128,6 +129,8 @@
 
 <script>
 import { VSkeletonLoader } from "vuetify/lib/labs/components.mjs";
+import { addCartItems } from "@/store/cart";
+import { mapActions } from "pinia";
 export default {
   mounted() {
     this.Emitter.on("openQuickView", (data) => {
@@ -139,6 +142,13 @@ export default {
         this.loading = false;
       }, 400);
     });
+  },
+  methods: {
+    ...mapActions(addCartItems, ["addItem"]),
+    addToCart(item) {
+      item.quantity = this.quantity;
+      this.addItem(item);
+    },
   },
   inject: ["Emitter"],
   components: {
