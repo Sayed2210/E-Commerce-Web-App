@@ -114,6 +114,7 @@
                       color: white;
                     "
                     class="w-75 px-5 py-1"
+                    :loading="btnLoading"
                     @click="addToCart(product)"
                     >Add To Cart</v-btn
                   >
@@ -134,7 +135,6 @@ import { mapActions } from "pinia";
 export default {
   mounted() {
     this.Emitter.on("openQuickView", (data) => {
-      console.log(data);
       this.loading = true;
       this.product = data;
       this.dialog = true;
@@ -147,7 +147,14 @@ export default {
     ...mapActions(addCartItems, ["addItem"]),
     addToCart(item) {
       item.quantity = this.quantity;
-      this.addItem(item);
+      this.btnLoading = true;
+      setTimeout(() => {
+        this.btnLoading = false;
+        this.addItem(item);
+        this.Emitter.emit("openCart");
+        this.Emitter.emit("showMsg", item.title);
+        this.dialog = false;
+      }, 1000);
     },
   },
   inject: ["Emitter"],
@@ -160,6 +167,7 @@ export default {
     quantity: 1,
     dialog: false,
     product: "",
+    btnLoading: false,
   }),
 };
 </script>
