@@ -95,6 +95,12 @@
                     class="py-1 px-9 rounded-pill"
                     variant="outlined"
                     density="compact"
+                    @click="
+                      $router.push({
+                        name: 'products-page',
+                        params: { productId: item.id },
+                      })
+                    "
                   >
                     Choose Product
                   </v-btn>

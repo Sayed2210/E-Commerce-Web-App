@@ -37,7 +37,10 @@
             <h6>Search</h6>
           </div>
           <div class="icons text-center" @click="fireemit">
-            <v-badge location="top right" color="red" content="2"
+            <v-badge
+              location="top right"
+              color="red"
+              :content="cartItems.length"
               ><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                 <path
                   class="path1"
@@ -63,9 +66,12 @@
 <script>
 import { productModule } from "@/store/products";
 import { mapState } from "pinia";
+import { addCartItems } from "@/store/cart";
+
 export default {
   computed: {
     ...mapState(productModule, ["categories"]),
+    ...mapState(addCartItems, ["cartItems"]),
   },
 };
 </script>
