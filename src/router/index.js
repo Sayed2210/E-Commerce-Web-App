@@ -17,6 +17,11 @@ const routes = [
     name: "products-page",
     component: () => import("@/views/ProductPage"),
   },
+  {
+    path: "/cart-page",
+    name: "cart-page",
+    component: () => import("@/views/CartPage"),
+  },
 ];
 
 const router = createRouter({

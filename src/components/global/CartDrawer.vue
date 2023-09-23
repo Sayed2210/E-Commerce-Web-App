@@ -144,7 +144,6 @@
               </div>
             </v-col>
             <v-divider></v-divider>
-            <p>{{ calcTotal }}</p>
           </v-row>
         </v-container>
       </v-card>
@@ -178,6 +177,7 @@
           height="50"
           density="compact"
           style="border-radius: 30px; border: 1px black solid"
+          @click="$router.push({ name: 'cart-page' })"
           >View Cart</v-btn
         >
       </v-card-actions>
