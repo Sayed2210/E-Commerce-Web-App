@@ -36,7 +36,13 @@
             </svg>
             <h6>Search</h6>
           </div>
-          <div class="icons text-center" @click="fireemit">
+          <div
+            class="icons text-center"
+            @click="fireemit"
+            :style="`cursor: pointer; pointer-events: ${
+              $route.name == 'cart-page' ? 'none' : 'unset'
+            }`"
+          >
             <v-badge
               location="top right"
               color="red"

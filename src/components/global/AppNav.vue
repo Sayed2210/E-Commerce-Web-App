@@ -43,7 +43,13 @@
             <span>Availiable 24/7</span>
             <h2 class="text-caption">+20 01013453391</h2>
           </div>
-          <div class="icons text-center" @click="fireemit">
+          <div
+            class="icons text-center"
+            @click="fireemit"
+            :style="`cursor: pointer; pointer-events: ${
+              $route.name == 'cart-page' ? 'none' : 'unset'
+            }`"
+          >
             <v-badge
               location="top right"
               color="red"
@@ -294,7 +300,6 @@ ul {
   }
 }
 .lang {
-  cursor: pointer;
   svg {
     width: 20px;
   }
