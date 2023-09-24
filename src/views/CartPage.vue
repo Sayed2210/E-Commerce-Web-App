@@ -205,30 +205,102 @@
               <h3>${{ calcTotal }}</h3>
             </div>
             <v-divider></v-divider>
+            <h4 class="font-weight-bold mb-2 mt-3 text-medium-emphasis">
+              Get Shipping Estimate:
+            </h4>
             <div class="shipping py-5">
-              <select
-                class="w-100 pa-2 mb-4"
-                style="border: 1px solid #ccc; border-radius: 16px"
+              <div class="select">
+                <select
+                  class="w-100 pa-2 mb-4"
+                  style="border: 1px solid #ccc; border-radius: 18px"
+                >
+                  <option v-for="city in cities" :key="city" :value="city">
+                    {{ city }}
+                  </option>
+                </select>
+                <v-icon icon="mdi-chevron-down select-icon"></v-icon>
+              </div>
+              <v-row>
+                <v-col cols="8">
+                  <div class="select">
+                    <select
+                      class="pa-2 w-100"
+                      style="border: 1px solid #ccc; border-radius: 18px"
+                    >
+                      <option
+                        v-for="state in states"
+                        :key="state"
+                        :value="state"
+                      >
+                        {{ state }}
+                      </option>
+                    </select>
+                    <v-icon icon="mdi-chevron-down select-icon"></v-icon>
+                  </div>
+                </v-col>
+                <v-col cols="4"
+                  ><input
+                    type="text"
+                    placeholder="Postal Code"
+                    class="pa-2 w-100"
+                    style="border: 1px solid #ccc; border-radius: 18px"
+                /></v-col>
+              </v-row>
+              <v-btn
+                v-if="cartItems.length"
+                height="50"
+                density="compact"
+                style="border-radius: 30px"
+                class="mt-5 w-100"
+                variant="elevated"
+                color="blue"
+                >Calculate Shipping</v-btn
               >
-                <option v-for="city in cities" :key="city" :value="city">
-                  {{ city }}
-                </option>
-              </select>
-              <select
-                class="pa-2"
-                style="border: 1px solid #ccc; border-radius: 16px; width: 55%"
-              >
-                <option v-for="state in states" :key="state" :value="state">
-                  {{ state }}
-                </option>
-              </select>
-              <input
-                type="text"
-                placeholder="Postal Code"
-                class="pa-2 ml-4"
-                style="border: 1px solid #ccc; border-radius: 16px; width: 40%"
-              />
             </div>
+            <v-divider></v-divider>
+            <h4 class="font-weight-bold mb-2 mt-3">Coupon Code :</h4>
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Enter Your Coupon"
+              class="w-100 py-3 px-3 my-2"
+              style="border-radius: 18px; border: 1px solid #ccc; outline: none"
+            />
+            <p class="text-medium-emphasis my-2">
+              Coupon Will Be Applied on the checkout page
+            </p>
+            <v-divider></v-divider>
+            <div class="total d-flex align-center justify-space-between py-5">
+              <h4>Total</h4>
+              <h4>${{ calcTotal }}</h4>
+            </div>
+            <v-divider></v-divider>
+            <p class="text-medium-emphasis mt-4">
+              Tax Included and Shipping calculte at checkout
+            </p>
+            <div class="my-2">
+              <input type="checkbox" name="" id="tax" class="mr-2" />
+              <label for="tax">I Agree With Terms & conditions</label>
+            </div>
+            <v-btn
+              v-if="cartItems.length"
+              height="50"
+              density="compact"
+              class="mt-2 w-100"
+              variant="elevated"
+              color="blue"
+              >Proceed to Checkout</v-btn
+            >
+            <v-btn
+              v-if="cartItems.length"
+              height="50"
+              density="compact"
+              class="mt-2 w-100"
+              variant="outlined"
+              @click="$router.push({ name: 'home' })"
+              >Continue Shipping</v-btn
+            >
           </v-col>
         </v-row>
       </v-row>
@@ -270,5 +342,13 @@ export default {
 <style lang="scss">
 .v-table__wrapper {
   overflow: hidden;
+}
+.select {
+  position: relative;
+  .select-icon {
+    position: absolute;
+    right: 10px;
+    top: 18%;
+  }
 }
 </style>
