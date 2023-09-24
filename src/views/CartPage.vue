@@ -160,9 +160,75 @@
                 </tr>
               </tbody>
             </v-table>
+            <v-row>
+              <v-col cols="12" class="d-flex align-center">
+                <svg
+                  id="Layer_1"
+                  data-name="Layer 1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 179.94 179.96"
+                  class="icon icon-shield-check"
+                  width="30"
+                >
+                  <path
+                    d="M90,0,5,42.78C13.73,105.26,38.14,154.32,90,180c51.83-25.64,76.25-74.7,85-137.18Z"
+                  ></path>
+                  <polygon
+                    fill="white"
+                    class="cls-1"
+                    points="149.83 67.57 134.81 52.55 79.31 108.05 49.74 78.48 34.72 93.5 79.15 137.94 79.31 137.78 79.47 137.94 149.83 67.57"
+                  ></polygon>
+                </svg>
+                <p class="ml-2 text-medium-emphasis">
+                  Secure Shopping Guarantee
+                </p>
+              </v-col>
+              <v-col cols="12">
+                <img
+                  src="@/assets/images/cart-page-cards.webp"
+                  class="w-50"
+                  alt=""
+                />
+              </v-col>
+            </v-row>
           </v-col>
           <v-col cols="4">
-            <h2>dhgsahfeds</h2>
+            <h3 class="font-weight-bold mb-2">Order summary</h3>
+            <v-divider class="border-opacity-100" color="dark"></v-divider>
+            <v-divider class="border-opacity-100" color="dark"></v-divider>
+            <v-divider class="border-opacity-100" color="dark"></v-divider>
+            <v-divider class="border-opacity-100" color="dark"></v-divider>
+            <div
+              class="subtotal d-flex align-center py-5 justify-space-between"
+            >
+              <h5>Subtotal</h5>
+              <h3>${{ calcTotal }}</h3>
+            </div>
+            <v-divider></v-divider>
+            <div class="shipping py-5">
+              <select
+                class="w-100 pa-2 mb-4"
+                style="border: 1px solid #ccc; border-radius: 16px"
+              >
+                <option v-for="city in cities" :key="city" :value="city">
+                  {{ city }}
+                </option>
+              </select>
+              <select
+                class="pa-2"
+                style="border: 1px solid #ccc; border-radius: 16px; width: 55%"
+              >
+                <option v-for="state in states" :key="state" :value="state">
+                  {{ state }}
+                </option>
+              </select>
+              <input
+                type="text"
+                placeholder="Postal Code"
+                class="pa-2 ml-4"
+                style="border: 1px solid #ccc; border-radius: 16px; width: 40%"
+              />
+            </div>
           </v-col>
         </v-row>
       </v-row>
@@ -191,6 +257,10 @@ export default {
       return total;
     },
   },
+  data: () => ({
+    cities: ["Cario", "Alex", "Mansoura", "Aswan", "Tanta"],
+    states: ["Maadi", "Zed", "Badr City", "Nasr City"],
+  }),
   mounted() {
     this.getItems();
   },
