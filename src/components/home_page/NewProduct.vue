@@ -2,7 +2,17 @@
   <div class="new-product py-8">
     <div class="title d-flex align-center justify-space-between mb-4">
       <h1 class="text-black font-weight-bold">New Products</h1>
-      <a href="#" class="text-black">Shop All</a>
+      <router-link
+        class="text-black"
+        :to="{
+          name: 'products-category',
+          query: {
+            title: categories[index].title,
+            category: categories[index].route,
+          },
+        }"
+        >Shop All</router-link
+      >
     </div>
     <v-container fluid>
       <v-row class="align-start">
@@ -120,12 +130,17 @@
 <script>
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import { Pagination, Autoplay } from "swiper";
+import { productModule } from "@/store/products";
+import { mapState } from "pinia";
 export default {
   inject: ["Emitter"],
   methods: {
     openQuickView(product) {
       this.Emitter.emit("openQuickView", product);
     },
+  },
+  computed: {
+    ...mapState(productModule, ["categories"]),
   },
   components: {
     SwiperSlide,
@@ -139,6 +154,9 @@ export default {
   props: {
     products: {
       type: Array,
+    },
+    index: {
+      type: Number,
     },
   },
   data: () => ({

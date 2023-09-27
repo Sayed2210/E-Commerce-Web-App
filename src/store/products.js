@@ -24,16 +24,16 @@ export const productModule = defineStore("productModule", {
         route: "womens-dresses",
       },
       {
-        title: "Womens Shoes",
-        route: "womens-shoes",
+        title: "Fragrances",
+        route: "fragrances",
       },
       {
         title: "Mens Shirts",
         route: "mens-shirts",
       },
       {
-        title: "Mens Shoes",
-        route: "mens-shoes",
+        title: "Groceries",
+        route: "groceries",
       },
       {
         title: "Sunglasses",

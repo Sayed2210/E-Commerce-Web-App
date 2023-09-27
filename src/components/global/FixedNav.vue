@@ -19,7 +19,7 @@
                   style="color: white; text-decoration: none"
                   :to="{
                     name: 'products-category',
-                    params: { category: cat.route, title: cat.title },
+                    query: { category: cat.route, title: cat.title },
                   }"
                   >{{ cat.title }}</router-link
                 >

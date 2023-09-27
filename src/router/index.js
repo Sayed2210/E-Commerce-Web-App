@@ -8,7 +8,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/products/:category/:title",
+    path: "/products",
     name: "products-category",
     component: () => import("@/views/ProductCategory"),
   },
