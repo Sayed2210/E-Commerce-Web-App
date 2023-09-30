@@ -7,26 +7,30 @@
       :products="flashDeals"
       title="Flash Deals"
       title-color="red"
+      :index="0"
     />
     <TopCategory />
-    <NewProduct :products="newProduct" />
+    <NewProduct :products="newProduct" :index="0" />
     <QualityFeatures />
     <ProductSwiper
       :products="mobilePhones"
       title="Top Mobiles Phones"
       title-color="black"
+      :index="0"
     />
     <FeatureBand />
     <ProductSwiper
       :products="fragrances"
       title="Fragrances"
       title-color="black"
+      :index="3"
     />
     <TvBanner />
     <ProductSwiper
       :products="groceries"
-      title="Fragrances"
+      title="Groceries"
       title-color="black"
+      :index="5"
     />
     <WhyShopUs />
   </div>

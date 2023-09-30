@@ -26,7 +26,6 @@
 <style lang="scss">
 .banner {
   .parent {
-    height: 420px;
     background-image: url(../../assets/images/banner-bg.jpg);
     background-size: cover;
     background-position: -90px top;

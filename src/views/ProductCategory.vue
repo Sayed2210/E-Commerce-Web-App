@@ -136,14 +136,20 @@ export default {
   },
   watch: {
     async $route() {
-      this.loading = true;
-      await this.getProductsByCategory(this.$route.params.category);
-      this.loading = false;
+      if (this.$route.name == "products-category") {
+        document.documentElement.scrollTo(0, 0);
+        this.loading = true;
+        await this.getProductsByCategory(this.$route.query.category);
+        this.loading = false;
+      }
     },
   },
   async mounted() {
+    if (!this.$route.query.category) {
+      return this.$router.go(-1);
+    }
     this.loading = true;
-    await this.getProductsByCategory(this.$route.params.category);
+    await this.getProductsByCategory(this.$route.query.category);
     this.loading = false;
   },
 };

@@ -4,7 +4,17 @@
       <h1 :class="[`text-${titleColor}`]">
         {{ title }}
       </h1>
-      <a href="#" class="text-black">Shop All</a>
+      <router-link
+        class="text-black"
+        :to="{
+          name: 'products-category',
+          query: {
+            title: categories[index].title,
+            category: categories[index].route,
+          },
+        }"
+        >Shop All</router-link
+      >
     </div>
     <v-container fluid>
       <v-row>
@@ -24,7 +34,12 @@
       :slides-per-view="4"
       :space-between="35"
       navigation
-      autoplay
+      :loop="true"
+      :autoplay="{
+        delay: 3000,
+        pauseOnMouseEnter: true,
+        disableOnInteraction: false,
+      }"
       class="pb-14"
     >
       <swiper-slide v-for="item in products" :key="item.id">
@@ -80,7 +95,7 @@
               }}
             </span>
           </v-card-text>
-          <v-btn-toggle v-model="showItem[item.title]">
+          <v-btn-toggle v-model="showItem[item.title]" mandatory>
             <v-btn
               class="pa-1"
               height="fit-content"
@@ -124,6 +139,8 @@
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import { Navigation, Pagination, Autoplay } from "swiper";
 import { VSkeletonLoader } from "vuetify/lib/labs/components.mjs";
+import { productModule } from "@/store/products";
+import { mapState } from "pinia";
 
 export default {
   inject: ["Emitter"],
@@ -131,6 +148,9 @@ export default {
     openQuickView(product) {
       this.Emitter.emit("openQuickView", product);
     },
+  },
+  computed: {
+    ...mapState(productModule, ["categories"]),
   },
   components: {
     SwiperSlide,
@@ -151,6 +171,9 @@ export default {
     },
     titleColor: {
       type: String,
+    },
+    index: {
+      type: Number,
     },
   },
   data: () => ({
