@@ -202,6 +202,7 @@
           class="mt-5"
           variant="elevated"
           color="blue"
+          @click="chechout"
           >Check Out</v-btn
         >
       </v-card-actions>
@@ -237,7 +238,15 @@ import { addCartItems } from "@/store/cart";
 import { mapActions, mapState } from "pinia";
 export default {
   methods: {
-    ...mapActions(addCartItems, ["getItems", "deleteItem"]),
+    ...mapActions(addCartItems, [
+      "getItems",
+      "deleteItem",
+      "setToLocalStorage",
+    ]),
+    chechout() {
+      this.setToLocalStorage();
+      this.$router.push({ name: "checkout" });
+    },
   },
   computed: {
     ...mapState(addCartItems, ["cartItems"]),
