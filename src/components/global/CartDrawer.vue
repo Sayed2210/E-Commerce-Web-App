@@ -1,5 +1,10 @@
 <template>
-  <v-navigation-drawer location="right" temporary v-model="drawer" width="350">
+  <v-navigation-drawer
+    location="right"
+    temporary
+    v-model="drawer"
+    :width="windowWidth <= 768 ? windowWidth / 2 : 370"
+  >
     <v-card flat class="px-0">
       <v-card-title class="font-weight-bold"> Shoppping Cart </v-card-title>
       <v-card-text class="font-weight-thin text-medium-emphasis"
@@ -117,10 +122,10 @@
             :key="item.id"
             class="align-start mt-5"
           >
-            <v-col cols="5">
+            <v-col cols="12" md="5">
               <img :src="item.thumbnail" class="w-100" alt="" />
             </v-col>
-            <v-col cols="7">
+            <v-col cols="12" md="7">
               <v-card-text
                 class="pl-0 pt-0"
                 style="white-space: pre-wrap; font-size: 14px; line-height: 1.2"
@@ -237,6 +242,11 @@ onMounted(() => {
 import { addCartItems } from "@/store/cart";
 import { mapActions, mapState } from "pinia";
 export default {
+  props: {
+    windowWidth: {
+      type: Number,
+    },
+  },
   methods: {
     ...mapActions(addCartItems, [
       "getItems",
@@ -278,6 +288,14 @@ export default {
     border: none;
     outline: none;
     width: 45px;
+  }
+}
+@media (max-width: 580px) {
+  .v-navigation-drawer__content {
+    button {
+      height: 30px !important;
+      font-size: 13px !important;
+    }
   }
 }
 </style>

@@ -2,7 +2,9 @@
   <v-container>
     <v-row>
       <v-col cols="12" sm="4">
-        <div class="parent d-flex align-center justify-center">
+        <div
+          class="parent d-flex align-center justify-center flex-column flex-sm-row"
+        >
           <svg
             aria-hidden="true"
             focusable="false"
@@ -11,7 +13,7 @@
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 640 512"
-            class="svg-inline--fa fa-shipping-fast fa-w-20 fa-3x"
+            class="svg-inline--fa fa-shipping-fast fa-w-20 fa-3x mb-sm-0 mb-2"
           >
             <path
               fill="currentColor"
@@ -23,7 +25,9 @@
         </div>
       </v-col>
       <v-col cols="12" sm="4">
-        <div class="parent d-flex align-center justify-center second">
+        <div
+          class="parent d-flex align-center justify-center flex-column flex-sm-row second"
+        >
           <svg
             aria-hidden="true"
             focusable="false"
@@ -32,7 +36,7 @@
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
-            class="svg-inline--fa fa-envelope fa-w-16 fa-7x"
+            class="svg-inline--fa fa-envelope fa-w-16 fa-7x mb-sm-0 mb-2"
           >
             <path
               fill="currentColor"
@@ -44,7 +48,9 @@
         </div>
       </v-col>
       <v-col cols="12" sm="4">
-        <div class="parent d-flex align-center justify-center">
+        <div
+          class="parent d-flex align-center justify-center flex-column flex-sm-row"
+        >
           <svg
             aria-hidden="true"
             focusable="false"
@@ -53,7 +59,7 @@
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"
-            class="svg-inline--fa fa-trophy-alt fa-w-18 fa-3x"
+            class="svg-inline--fa fa-trophy-alt fa-w-18 fa-3x mb-sm-0 mb-2"
           >
             <path
               fill="currentColor"
@@ -94,6 +100,14 @@ svg {
     top: 50%;
     transform: translateY(-50%);
     left: 0;
+  }
+}
+@media (max-width: 660px) {
+  .second {
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 }
 </style>

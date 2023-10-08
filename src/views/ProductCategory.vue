@@ -12,7 +12,10 @@
         </v-row>
         <v-row v-if="!loading">
           <v-col
-            cols="3"
+            lg="3"
+            cols="12"
+            sm="6"
+            md="4"
             v-for="item in categoriesProducts.products"
             :key="item.id"
           >
@@ -89,7 +92,7 @@
                   />
                 </v-btn>
               </v-btn-toggle>
-              <v-card-action>
+              <v-card-action class="d-flex justify-center justify-sm-start">
                 <v-btn
                   class="py-1 px-12 rounded-pill"
                   variant="outlined"
@@ -173,6 +176,17 @@ export default {
     border-radius: 30px;
     transition: 0.3s;
     opacity: 0;
+  }
+}
+@media (max-width: 580px) {
+  .product-category {
+    text-align: center;
+    .img-parent {
+      height: 330px;
+      img {
+        width: 100%;
+      }
+    }
   }
 }
 </style>

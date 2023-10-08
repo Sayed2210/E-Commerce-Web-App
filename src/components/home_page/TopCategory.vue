@@ -9,7 +9,13 @@
     </div>
     <v-container fluid>
       <v-row>
-        <v-col cols="2" v-for="cat in categories" :key="cat.title">
+        <v-col
+          cols="6"
+          sm="3"
+          md="2"
+          v-for="cat in categories"
+          :key="cat.title"
+        >
           <v-card flat class="text-center">
             <v-hover v-slot="{ isHovering, props }"
               ><div class="image-parent w-100 rounded-circle">

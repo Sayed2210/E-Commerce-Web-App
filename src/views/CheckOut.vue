@@ -2,8 +2,8 @@
   <div class="check-out pa-0">
     <v-container fluid class="pa-0">
       <v-row class="align-stretch">
-        <v-col cols="7">
-          <v-card flat class="pl-15 py-10">
+        <v-col cols="12" md="7" class="order-1 order-md-0">
+          <v-card flat class="px-5 pl-md-15 py-10">
             <v-card-title class="font-weight-bold">New Ella Shop</v-card-title>
             <v-breadcrumbs
               :items="['Home', 'Checkout']"
@@ -16,7 +16,7 @@
             <v-card-text class="text-center">Express checkout</v-card-text>
             <div
               class="express-checkout d-flex align-center justify-space-between mb-5"
-              style="gap: 15px"
+              style="gap: 10px"
             >
               <v-btn color="#5A31F4" height="45" class="w-50"
                 ><svg
@@ -90,7 +90,7 @@
                 name=""
                 id=""
                 placeholder="First Name"
-                class="w-50 py-3 px-3 my-2 mr-3"
+                class="w-50 py-3 px-3 my-2 mr-md-3 mr-1"
                 style="
                   border-radius: 7px;
                   border: 1px solid #ccc;
@@ -103,7 +103,7 @@
                 name=""
                 id=""
                 placeholder="Last Name"
-                class="py-3 px-3 my-2"
+                class="py-3 px-md-3 px-2 my-2"
                 style="
                   border-radius: 7px;
                   border: 1px solid #ccc;
@@ -170,7 +170,7 @@
                   "
                 />
               </div>
-              <v-card-actions class="justify-end mt-7">
+              <v-card-actions class="justify-md-end mt-7">
                 <v-btn
                   color="#1677b0"
                   height="45"
@@ -184,11 +184,11 @@
             </div>
           </v-card>
         </v-col>
-        <v-col cols="5">
+        <v-col cols="12" md="5">
           <v-card
             flat
             color="grey-lighten-3"
-            class="pa-5 pr-15 py-15"
+            class="pa-5 pr-md-15 py-15"
             width="100%"
             height="100%"
           >
@@ -280,3 +280,8 @@ export default {
   }),
 };
 </script>
+
+<style lang="scss">
+.check-out {
+}
+</style>
