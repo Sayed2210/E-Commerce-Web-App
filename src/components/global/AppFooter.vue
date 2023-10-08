@@ -1,7 +1,7 @@
 <template>
   <v-footer :app="true" absolute class="bg-rgb(43, 43, 43)-lighten-2 py-5">
     <v-row no-gutters>
-      <v-col cols="3">
+      <v-col cols="12" sm="6" md="4" lg="3">
         <v-card flat color="transparent">
           <v-card-title
             class="pl-0 text-weight-bold text-h6 text-uppercase pb-6"
@@ -23,7 +23,7 @@
           >
         </v-card>
       </v-col>
-      <v-col cols="3">
+      <v-col cols="12" sm="6" md="4" lg="3">
         <v-card flat color="transparent">
           <v-card-title
             class="pl-0 text-weight-bold text-h6 text-uppercase pb-6"
@@ -49,7 +49,7 @@
           <v-card-text class="pt-0 pl-0 text-subtitle-2">Bolg</v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="3">
+      <v-col cols="12" sm="6" md="4" lg="3">
         <v-card flat color="transparent">
           <v-card-title
             class="pl-0 text-weight-bold text-h6 text-uppercase pb-6"
@@ -79,7 +79,7 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="3">
+      <v-col cols="12" sm="6" md="4" lg="3">
         <v-card flat color="transparent">
           <img
             src="@/assets/images/footer-logo.webp"
@@ -286,14 +286,18 @@
           />
         </div>
       </v-col>
-      <v-row>
-        <v-col cols="6">
+      <v-row class="text-center">
+        <v-col cols="12" md="6">
           <p>
             &copy; {{ new Date().getFullYear() }} Ella Demo. All Rights
             Reserved. Powered By Ella
           </p>
         </v-col>
-        <v-col cols="6" class="d-flex align-center justify-end">
+        <v-col
+          cols="12"
+          md="6"
+          class="d-flex align-center justify-md-end justify-center"
+        >
           <span
             v-for="(svg, i) in svgs"
             :key="i"

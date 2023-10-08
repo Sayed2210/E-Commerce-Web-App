@@ -2,7 +2,7 @@
   <div class="singleProduct-page py-6">
     <v-container fluid>
       <v-row>
-        <v-col cols="7">
+        <v-col cols="12" md="7">
           <img
             :src="tab ? tab : singleProduct.thumbnail"
             class="w-100"
@@ -23,7 +23,7 @@
             /></v-tab>
           </v-tabs>
         </v-col>
-        <v-col cols="5">
+        <v-col cols="12" md="5">
           <v-skeleton-loader
             type="article , image, button"
             v-if="loading"

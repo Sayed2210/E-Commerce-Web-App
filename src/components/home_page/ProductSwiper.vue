@@ -40,6 +40,7 @@
         pauseOnMouseEnter: true,
         disableOnInteraction: false,
       }"
+      :breakpoints="breakPionts"
       class="pb-14"
     >
       <swiper-slide v-for="item in products" :key="item.id">
@@ -114,7 +115,7 @@
               />
             </v-btn>
           </v-btn-toggle>
-          <v-card-action>
+          <v-card-action class="d-flex justify-center justify-sm-start">
             <v-btn
               class="py-1 px-12 rounded-pill"
               variant="outlined"
@@ -178,6 +179,23 @@ export default {
   },
   data: () => ({
     showItem: {},
+    breakPionts: {
+      0: {
+        slidesPerView: 1,
+      },
+      580: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      990: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+    },
   }),
 };
 </script>
@@ -226,6 +244,15 @@ img {
   .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
+  }
+}
+@media (max-width: 580px) {
+  .img-parent {
+    height: 330px;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 50% !important;
   }
 }
 </style>

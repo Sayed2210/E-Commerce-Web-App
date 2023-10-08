@@ -1,17 +1,17 @@
 <template>
   <v-layout style="position: relative">
-    <CartDrawer />
-    <AppNav v-show="$route.name != 'checkout' && widowWidth > 990" />
-    <MenuDrawer />
+    <CartDrawer :windowWidth="windowWidth" />
+    <AppNav v-show="$route.name != 'checkout' && windowWidth > 990" />
+    <MenuDrawer :windowWidth="windowWidth" />
     <v-main
       :style="`padding-top: ${
-        $route.name == 'checkout' ? '0px' : widowWidth <= 990 ? '60px' : '136'
+        $route.name == 'checkout' ? '0px' : windowWidth <= 990 ? '60px' : '136'
       }`"
     >
       <slot></slot>
     </v-main>
-    <ResponsiveNav v-show="$route.name != 'checkout' && widowWidth <= 990" />
-    <FixedNav v-show="$route.name != 'checkout' && widowWidth > 990" />
+    <ResponsiveNav v-show="$route.name != 'checkout' && windowWidth <= 990" />
+    <FixedNav v-show="$route.name != 'checkout' && windowWidth > 990" />
     <AppFooter v-show="$route.name != 'checkout'" />
   </v-layout>
 </template>
@@ -32,12 +32,12 @@ export default {
     MenuDrawer,
   },
   data: () => ({
-    widowWidth: 0,
+    windowWidth: 0,
   }),
   mounted() {
-    this.widowWidth = window.innerWidth;
+    this.windowWidth = window.innerWidth;
     window.onresize = () => {
-      this.widowWidth = window.innerWidth;
+      this.windowWidth = window.innerWidth;
     };
   },
 };

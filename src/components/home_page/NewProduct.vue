@@ -16,13 +16,14 @@
     </div>
     <v-container fluid>
       <v-row class="align-start">
-        <v-col cols="7" class="pt-12">
+        <v-col cols="12" sm="8" md="7" class="pt-12">
           <Swiper
             :pagination="{ clickable: true }"
             :modules="modules"
             :slides-per-view="3"
             :space-between="15"
             autoplay
+            :breakpoints="breakPionts"
             class="pb-14"
           >
             <swiper-slide v-for="item in products" :key="item.id">
@@ -100,7 +101,7 @@
                     />
                   </v-btn>
                 </v-btn-toggle>
-                <v-card-action>
+                <v-card-action class="d-flex justify-center justify-sm-start">
                   <v-btn
                     class="py-1 px-9 rounded-pill"
                     variant="outlined"
@@ -119,7 +120,7 @@
             </swiper-slide>
           </Swiper>
         </v-col>
-        <v-col cols="5">
+        <v-col cols="12" sm="4" md="5">
           <img src="@/assets/images/vr-banner.webp" class="w-100" alt="" />
         </v-col>
       </v-row>
@@ -161,6 +162,23 @@ export default {
   },
   data: () => ({
     showItem: {},
+    breakPionts: {
+      0: {
+        slidesPerView: 1,
+      },
+      580: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      990: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+    },
   }),
 };
 </script>
@@ -183,6 +201,17 @@ export default {
     border-radius: 30px;
     transition: 0.3s;
     opacity: 0;
+  }
+}
+@media (max-width: 768px) {
+  .swiper {
+    .img-parent {
+      width: 100%;
+      height: 280px !important;
+      img {
+        width: 100%;
+      }
+    }
   }
 }
 </style>

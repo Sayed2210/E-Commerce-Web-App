@@ -1,6 +1,10 @@
 <template>
   <div class="menu-drawer">
-    <v-navigation-drawer temporary v-model="drawer" width="350" class="px-3"
+    <v-navigation-drawer
+      temporary
+      v-model="drawer"
+      :width="windowWidth <= 768 ? windowWidth / 2 : 370"
+      class="px-3"
       ><v-card-title
         class="font-weight-bold pl-0 pr-2 d-flex justify-space-between align-center w-100"
       >
@@ -42,6 +46,11 @@
 import { productModule } from "@/store/products";
 import { mapState } from "pinia";
 export default {
+  props: {
+    windowWidth: {
+      type: Number,
+    },
+  },
   data: () => ({
     drawer: false,
   }),
