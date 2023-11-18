@@ -5,7 +5,7 @@
     <MenuDrawer :windowWidth="windowWidth" />
     <v-main
       :style="`padding-top: ${
-        $route.name == 'checkout' ? '0px' : windowWidth <= 990 ? '60px' : '136'
+        $route.name == 'checkout' ? '0px' : windowWidth <= 990 ? '90px' : '136'
       }`"
     >
       <slot></slot>
